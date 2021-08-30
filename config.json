@@ -1,0 +1,154 @@
+{
+    "backend": {
+        "url": "@@@BACKEND_URL@@@"
+    },
+    "cli": {
+        "transport": "tcp",
+        "address": "127.0.0.1:8664"
+    },
+    "logging": {
+         "Supervisor" : {
+            "log_folder": "logs",
+            "console_level": "off",
+            "console_pattern": "[%H:%M:%S:%f] [%^%l%$] [%n] [%t] %v",
+            "file_level": "info",
+            "file_pattern": "[%H:%M:%S:%f] [%^%l%$] [%t] %v",
+			"file_rotation_number":5,
+			"file_rotation_size":"5M"
+         },
+         "ShellCommandRunner" : {
+            "log_folder": "logs",
+            "console_level": "off",
+            "console_pattern": "[%H:%M:%S:%f] [%^%l%$] [%n] [%t] %v",
+            "file_level": "info",
+            "file_pattern": "[%H:%M:%S:%f] [%^%l%$] [%t] %v",
+			"file_rotation_number":5,
+			"file_rotation_size":"5M"
+         },
+         "ThreadPool" : {
+            "log_folder": "logs",
+            "console_level": "off",
+            "console_pattern": "[%H:%M:%S:%f] [%^%l%$] [%n] [%t] %v",
+            "file_level": "info",
+            "file_pattern": "[%H:%M:%S:%f] [%^%l%$] [%t] %v",
+			"file_rotation_number":5,
+			"file_rotation_size":"5M"
+         },
+         "HttpsClient" : {
+            "log_folder": "logs",
+            "console_level": "off",
+            "console_pattern": "[%H:%M:%S:%f] [%^%l%$] [%n] [%t] %v",
+            "file_level": "info",
+            "file_pattern": "[%H:%M:%S:%f] [%^%l%$] [%t] %v",
+			"file_rotation_number":5,
+			"file_rotation_size":"5M"
+         },
+         "Process" : {
+            "log_folder": "logs",
+            "console_level": "off",
+            "console_pattern": "[%H:%M:%S:%f] [%^%l%$] [%n] [%t] %v",
+            "file_level": "info",
+            "file_pattern": "[%H:%M:%S:%f] [%^%l%$] [%t] %v",
+			"file_rotation_number":5,
+			"file_rotation_size":"5M"
+         },
+         "ResultSender" : {
+            "log_folder": "logs",
+            "console_level": "off",
+            "console_pattern": "[%H:%M:%S:%f] [%^%l%$] [%n] [%t] %v",
+            "file_level": "info",
+            "file_pattern": "[%H:%M:%S:%f] [%^%l%$] [%t] %v",
+			"file_rotation_number":5,
+			"file_rotation_size":"5M"
+         },
+         "SignatureVerifier" : {
+            "log_folder": "logs",
+            "console_level": "off",
+            "console_pattern": "[%H:%M:%S:%f] [%^%l%$] [%n] [%t] %v",
+            "file_level": "info",
+            "file_pattern": "[%H:%M:%S:%f] [%^%l%$] [%t] %v",
+			"file_rotation_number":5,
+			"file_rotation_size":"5M"
+         },
+         "TaskReceiver" : {
+            "log_folder": "logs",
+            "console_level": "off",
+            "console_pattern": "[%H:%M:%S:%f] [%^%l%$] [%n] [%t] %v",
+            "file_level": "info",
+            "file_pattern": "[%H:%M:%S:%f] [%^%l%$] [%t] %v",
+			"file_rotation_number":5,
+			"file_rotation_size":"5M"
+         },
+         "ScheduledJobsManager" : {
+            "log_folder": "logs",
+            "console_level": "off",
+            "console_pattern": "[%H:%M:%S:%f] [%^%l%$] [%n] [%t] %v",
+            "file_level": "info",
+            "file_pattern": "[%H:%M:%S:%f] [%^%l%$] [%t] %v",
+			"file_rotation_number":5,
+			"file_rotation_size":"5M"
+         },
+		"Audit" : {
+            "log_folder": "audit_logs",
+            "console_level": "off",
+            "console_pattern": "NULL",
+            "file_level": "info",
+            "file_pattern": "[%D %H-%M-%S.%f %z] %v",
+			"file_rotation_number":5,
+			"file_rotation_size":"5M"
+         }
+    },
+    "threadpool": {
+        "threads": 4
+    },
+    "actions": {
+        "install": {
+            "pre": [
+            ]
+        },
+        "someother": {
+            "post": [
+            ]
+        }
+    },
+	"agentmapping": {
+            "LogForwarder" : "LogAgent",
+			"ComponentAgent" : "ComponentAgent",
+			"Supervisor" : "supervisor",
+			"PSAgent" : "psAgent",
+			"ZuluJre" : "ZuluJre",
+			"ForensicAgent" : "ForensicAgent"
+     },
+    "packages": {
+        "url": "@@@DOWNLOAD_URL@@@",
+        "timeOut": 60,
+		"fileExtension": ".zip"
+    },
+    "schemas": {
+        "command": "D:/Office/New folder/Supervisor/schemas/command.schema.json"
+    },
+    "platform": {
+        "shell": "cmd /c",
+        "file_name_extension": ".bat"
+    },
+    "apps_dir": "$APPSONE_AGENTS_DIR$",
+	"java_path" : "$JAVA_PATH$",
+    "cache_dir": "$APPSONE_INSTALL_CACHE_DIR$",
+	"agent_selfheal_scripts_dir": "selfheal",
+    "cache_max_count": 2,
+    "public_key_location": "D:/Office/New folder/Supervisor/keys/key.pub",
+    "custom_public_key_location" : "@@@CUSTOM_KEY_PATH@@@/keys/key.pub",
+    "verify_signature_directive": "VERIFY_SIGNATURE",
+    "download_file_directive": "DOWNLOAD_FILE",
+    "enable_supervisor_lite" : false,
+    "selfheal_url" : "/agentHealthStatus",
+    "command_url" : "/command",
+    "result_url" : "/result",
+    "default_process_timeout": 300,
+    "default_selfheal_Interval":10,
+	"datachannel_timeout": 60,
+	"receiveTask_Interval" : 5,
+    "connection_retry_delay": 30,
+    "long_polling_timeout": 1800,
+    "id": "@@@AGENT_ID@@@"
+}
